@@ -24,12 +24,16 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnEnemyObject()
     {
-        Instantiate(enemyObject, new Vector3(0, 1, 10), enemyObject.transform.rotation);
+        Instantiate(enemyObject, RandomSpawnPosition(), enemyObject.transform.rotation);
     }
 
     void SpawnCollectibleObject()
     {
-        Instantiate(collectibleObject, new Vector3(0, 1, 15), collectibleObject.transform.rotation);
+        for(int i = 0; i < coinAmount; i++)
+        {
+            Instantiate(collectibleObject, RandomSpawnPosition(), collectibleObject.transform.rotation);
+        }
+
     }
 
     Vector3 RandomSpawnPosition()
